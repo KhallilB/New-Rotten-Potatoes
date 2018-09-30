@@ -7,6 +7,10 @@ var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
+//DATABASE
+const mongoose  = require('mongoose');
+mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
+
 //MOCK ARRAY OF REVIEWS
 let reviews = [
     { title: 'One Review' },
