@@ -37,4 +37,24 @@ module.exports = (app) => {
                 console.log('Error', err)
             })
     });
+
+    //EDIT
+    app.get('/reviews/:id/edit', (req, res) => {
+        Review.findById(req.params.id)
+            .then((review) => {
+                res.render('reviews-edit', { review: review });
+            }).catch((err) => {
+                console.log('Error', err)
+            })
+    });
+
+    //UPDATE
+    app.put('/reviews/:id', (req,res) => {
+        Review.findByIdAndUpdate(req.params.id, req.body)
+            .then((review) => {
+                res.redirect(`/reviews/${review._id}`);
+            }).catch((err) => {
+                console/log('Error', err)
+            })
+    });
 }

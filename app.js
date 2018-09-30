@@ -1,6 +1,8 @@
 //Using Express
 const express = require('express');
+const methodOverride = require('method-override')
 const app = express();
+app.use(methodOverride('_method'))
 
 //Using Handlebars
 var exphbs = require('express-handlebars');
