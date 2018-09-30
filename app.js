@@ -20,7 +20,8 @@ mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true 
 //ROUTES
 require('./controllers/reviews')(app);
 
-
+//EXPORTING
+module.exports = (app);
 
 app.listen(3000, () => {
     console.log('We Are Working!');
