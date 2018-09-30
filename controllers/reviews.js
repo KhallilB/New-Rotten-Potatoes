@@ -57,4 +57,14 @@ module.exports = (app) => {
                 console/log('Error', err)
             })
     });
+
+    //DELETE
+    app.delete('/reviews/:id', (req,res) => {
+        Review.findByIdAndRemove(req.params.id, req.body)
+            .then((review) => {
+                res.redirect('/');
+            }).catch((err) => {
+                console.log('Error', err)
+            })
+    })
 }
