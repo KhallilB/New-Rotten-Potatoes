@@ -11,15 +11,18 @@ app.set('view engine', 'handlebars');
 const mongoose  = require('mongoose');
 mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
 
-//MOCK ARRAY OF REVIEWS
-let reviews = [
-    { title: 'One Review' },
-    { title: 'Another Review' }
-]
+//MODELS
+const Review = require('./models/review') 
 
 //INDEX
 app.get('/', (req,res) => {
-    res.render('reviews-index', { reviews: reviews });
+    Review.find()
+        .then(reviews => {
+            res.render('reviews-index', { reviews: reviews });
+        })
+        .catch((err) => {
+            console.log('Error', err)
+        })
 });
 
 
