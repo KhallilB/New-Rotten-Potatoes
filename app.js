@@ -11,19 +11,9 @@ app.set('view engine', 'handlebars');
 const mongoose  = require('mongoose');
 mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
 
-//MODELS
-const Review = require('./models/review') 
+//ROUTES
+require('./controllers/reviews')(app);
 
-//INDEX
-app.get('/', (req,res) => {
-    Review.find()
-        .then(reviews => {
-            res.render('reviews-index', { reviews: reviews });
-        })
-        .catch((err) => {
-            console.log('Error', err)
-        })
-});
 
 
 app.listen(3000, () => {
