@@ -17,13 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const mongoose  = require('mongoose');
 mongoose.connect('mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
 
-var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/rotten-potatoes', { useNewUrlParser: true });
 
 const port = process.env.PORT || 3000;
 
 //ROUTES
 require('./controllers/reviews')(app);
+require('./controllers/comments')(app);
 
 //EXPORTING
 module.exports = (app);
