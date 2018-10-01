@@ -24,6 +24,7 @@ const port = process.env.PORT || 3000;
 //ROUTES
 require('./controllers/reviews')(app);
 require('./controllers/comments')(app);
+require('./controllers/movies')(app);
 
 //EXPORTING
 module.exports = (app);
