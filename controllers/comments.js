@@ -9,6 +9,6 @@ module.exports = (app) => {
                 res.redirect(`/reviews/${comment.reviewId}`);
             }).catch((err) => {
                 console.log('Error', err)
-            })
-    })
+            });
+    });
 }
