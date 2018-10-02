@@ -22,7 +22,6 @@ module.exports = (app) => {
                 moviedb.movieTrailers({ id: req.params.id })
                     .then((videos) =>{
                         movie.trailer_youtube_id = videos_youtube[0].source
-                        console.log('VIDEOS.TRAILER_YOUTUBE_ID', videos.trailer_youtube_id)
                     });
                 res.render('movies-show', { movie: movie })
             }).catch((err) => {
