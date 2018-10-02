@@ -2,8 +2,14 @@
     <div class="col-sm-4">
         <img class="img-responsive" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-4">
         <h1>{{movie.title}}</h1>
+        <h2>{{movie.vote_average}} Rating</h2>
         <p class="lead">{{movie.overview}}</p>
+    </div>
+    <div class="col-sm-12">
+            <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="200" height="150" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
     </div>
 </div>

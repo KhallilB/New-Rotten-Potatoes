@@ -1,7 +1,9 @@
 <h1>HELLO MOVIES</h1>
 <h1>Now Playing</h1>
-<ul>
-{{#each movies}}
-  <li><a href="/movies/{{this.id}}"><img src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>{{this.title}}</a></li>
+<div class="row" text-align="center">
+{{#each movie}}
+  <a href="/movies/{{this.id}}"><img class="img responsive" src="https://image.tmdb.org/t/p/w500/{{this.poster_path}}"/></a>
 {{/each}}
+</div>
+
 </ul>

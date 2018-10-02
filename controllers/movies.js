@@ -8,7 +8,23 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
         moviedb.miscNowPlayingMovies()
             .then((movie) => {
-                res.render('movies-index', { movie: movie})
+                res.render('movies-index', { movie: movie.results })
+                console.log(movie.results)
+            }).catch((err) => {
+                console.log('Error', err)
+            });
+    });
+
+    //SHOW
+    app.get('/movies/:id', (req, res) => {
+        moviedb.movieInfo({ id: req.params.id })
+            .then((movie) => {
+                moviedb.movieTrailers({ id: req.params.id })
+                    .then((videos) =>{
+                        movie.trailer_youtube_id = videos_youtube[0].source
+                        console.log('VIDEOS.TRAILER_YOUTUBE_ID', videos.trailer_youtube_id)
+                    });
+                res.render('movies-show', { movie: movie })
             }).catch((err) => {
                 console.log('Error', err)
             });
